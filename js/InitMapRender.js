@@ -6,7 +6,7 @@ function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
         contentType: "application/json",
         dataType: 'json',
         success: function (data) {
-			GetRegionData(regionSrc,data);
+			GetRegionData(mapDomElem,regionSrc,data);
         },
         error: function (e) {
             console.log(e);
@@ -14,7 +14,7 @@ function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
         }
     });
 }
-function GetRegionData(regionSrc,mapData){
+function GetRegionData(mapDomElem,regionSrc,mapData){
 	$.ajax({
         type: 'GET',
         url: regionSrc,

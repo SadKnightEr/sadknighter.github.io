@@ -46,12 +46,6 @@ function InitRender(elem, data) {
             }
         }
     });
-    $('#vmap').bind('click', function (ev) {
-        x = ev.clientX - offset.left;
-        y = ev.clientY - offset.top;
-
-        $display.text('x: ' + x + ', y: ' + y);
-    });
     $("#vmap").mousewheel(function (ev, val) {
         if (val > 0) {
             $('.jqvmap-zoomin').trigger('click');

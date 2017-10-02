@@ -36,9 +36,13 @@ function InitRender(elem, data) {
             if (!touch_detect()) {
                 var elementInfo = sampleData[code] !== undefined ? sampleData[code] : '0';
                 var message = '<p>' + region.toUpperCase() + ' (' + code.toUpperCase() + ')</p><p> ' + elementInfo+'</p>';
+				var leftPosition=d3.select('.jqvmap-label').style('top');
+				var topPosition=d3.select('.jqvmap-label').style('top');
                 tooltip
                     .html(message)
                     .style("visibility", "visible")
+					.style("top",topPosition)
+					.style("left",leftPosition)
             }
         }
     });

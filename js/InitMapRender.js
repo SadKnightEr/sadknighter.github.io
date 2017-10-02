@@ -2,7 +2,6 @@ function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
     $.ajax({
         type: 'GET',
         url: dataSrc,
-        async: true,
         contentType: "application/json",
         dataType: 'json',
         success: function (data) {
@@ -18,7 +17,6 @@ function GetRegionData(mapDomElem,regionSrc,mapData){
 	$.ajax({
         type: 'GET',
         url: regionSrc,
-        async: false,
         contentType: "application/json",
         dataType: 'json',
         success: function (regionData) {

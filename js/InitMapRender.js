@@ -51,8 +51,9 @@ function InitRender(elem, data,regionData) {
         onRegionClick: function (element, code, region) {
             if (!touch_detect()) {
                 var elementInfo = sampleData[code] !== undefined ? sampleData[code] : '0';
-				var regionCustomName=regionData[code]!='' ? regionData[code] : region.toUpperCase();
-                var message = '<p>' + regionCustomName + ' (' + code.toUpperCase() + ')</p><p> ' + elementInfo+'</p>';
+				var codeName=code.toUpperCase();
+				var regionCustomName=regionData[codeName]!='' ? regionData[code] : region.toUpperCase();
+                var message = '<p>' + regionCustomName + ' (' + codeName + ')</p><p> ' + elementInfo+'</p>';
 				var leftPosition=d3.select('.jqvmap-label').style('left');
 				var topPosition=d3.select('.jqvmap-label').style('top');
                 tooltip

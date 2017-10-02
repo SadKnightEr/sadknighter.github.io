@@ -1,12 +1,12 @@
-function InitWorldMap(mapDomElem, mapSrc) {
+function InitWorldMap(mapDomElem, dataSrc,regionSrc) {
     $.ajax({
         type: 'GET',
-        url: mapSrc,
-        async: false,
+        url: dataSrc,
+        async: true,
         contentType: "application/json",
         dataType: 'json',
         success: function (data) {
-            InitRender(mapDomElem, data);
+			GetRegionData(regionSrc,data);
         },
         error: function (e) {
             console.log(e);
@@ -14,7 +14,23 @@ function InitWorldMap(mapDomElem, mapSrc) {
         }
     });
 }
-function InitRender(elem, data) {
+function GetRegionData(regionSrc,mapData){
+	$.ajax({
+        type: 'GET',
+        url: regionSrc,
+        async: false,
+        contentType: "application/json",
+        dataType: 'json',
+        success: function (regionData) {
+            InitRender(mapDomElem, mapData,regionData);
+        },
+        error: function (e) {
+            console.log(e);
+
+        }
+    });
+}
+function InitRender(elem, data,regionData) {
     var tooltip = d3.select(".container")
         .append("div")
         .attr('class', 'tooltip')
@@ -35,7 +51,8 @@ function InitRender(elem, data) {
         onRegionClick: function (element, code, region) {
             if (!touch_detect()) {
                 var elementInfo = sampleData[code] !== undefined ? sampleData[code] : '0';
-                var message = '<p>' + region.toUpperCase() + ' (' + code.toUpperCase() + ')</p><p> ' + elementInfo+'</p>';
+				var regionCustomName=regionData[code]!='' ? regionData[code] : region.toUpperCase();
+                var message = '<p>' + regionCustomName + ' (' + code.toUpperCase() + ')</p><p> ' + elementInfo+'</p>';
 				var leftPosition=d3.select('.jqvmap-label').style('left');
 				var topPosition=d3.select('.jqvmap-label').style('top');
                 tooltip

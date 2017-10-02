@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>JQVMap - Europe Map</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link href="js/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/jqvmap/jquery.vmap.min.js"></script>
+    <script type="text/javascript" src="js/jqvmap/maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/InitMapRender.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+            InitWorldMap('#vmap', 'http://localhost:3527/js/data.json');
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_logo"></div>
+    </div>
+    <div class="container">
+        <h1>Thermal activity map</h1>
+        <div id="vmap"></div>
+    </div>
+    <div class="footer">
+        <div class="footer_copyright">
+            Все права защищены 2017-2018г.
+        </div>
+    </div>
+</body>
+</html>

@@ -52,7 +52,7 @@ function InitRender(elem, data,regionData) {
             if (!touch_detect()) {
                 var elementInfo = sampleData[code] !== undefined ? sampleData[code] : '0';
 				var codeName=code.toUpperCase();
-				var regionCustomName=regionData[codeName]!==undefined ? regionData[code] : region.toUpperCase();
+				var regionCustomName=regionData[codeName]!==undefined ? regionData[codeName] : region.toUpperCase();
                 var message = '<p>' + regionCustomName + ' (' + codeName + ')</p><p> ' + elementInfo+'</p>';
 				var leftPosition=d3.select('.jqvmap-label').style('left');
 				var topPosition=d3.select('.jqvmap-label').style('top');
